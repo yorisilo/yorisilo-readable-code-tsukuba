@@ -1,4 +1,4 @@
-# # coding: utf-8
+# coding: utf-8
 
 # recepes = [{id, name, recipe}, {id, name, recipe}, ...]
 class Recipes
@@ -31,8 +31,9 @@ class Recipes
     #puts "#{recipe[:id]}: #{recipe[:name]} #{recipe[:making]}"
   end
 
-  def show_usr(usr)
-    puts "ユーザー名: #{usr}"
+  def show_usr(usr_name)
+    @usr = usr_name
+    puts "ユーザー名: #{@usr}"
   end
 end
 
