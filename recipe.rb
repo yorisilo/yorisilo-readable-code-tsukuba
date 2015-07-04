@@ -1,12 +1,13 @@
 # coding: utf-8
 
-def openRecipes(recipes)
+def showRecipesId(recipes)
   File.open(recipes) do |f|
     ary = f.readlines
-    ary.each do |line|
-      puts line
+    ary.each.with_index(1) do |name, i|
+      idName = "#{i}: #{name}"
+      puts idName
     end
   end
 end
 
-openRecipes(ARGV[0])
+showRecipesId(ARGV[0])
