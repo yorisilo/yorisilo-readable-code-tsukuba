@@ -1,26 +1,42 @@
-# coding: utf-8
+# # coding: utf-8
 
-def showRecipesId(recipes)
-  File.open(recipes) do |f|
-    ary = f.readlines
-    ary.each.with_index(1) do |name, i|
-      idName = "#{i}: #{name}"
-      puts idName
+# recepes = [{id, name, recipe}, {id, name, recipe}, ...]
+class Recipes
+  def initialize(filename)
+    @file = filename
+    @recipes = []
+  end
+
+  def show_all
+    @recipes.each do |recipe|
+      puts "#{recipe[:id]}: #{recipe[:name]} #{recipe[:making]}"
     end
   end
-end
 
-def recipeId(recipes, id)
-  File.open(recipes) do |f|
-    ary = f.readlines
-    idName = ary[id-1]
-    puts "#{id}: #{idName}" if id != 0
-    #showRecipesId(recipes)  if id == 0
+  def read
+    @file.each.with_index(1) do |row, id|
+      recipe = row.split(" ")
+      @recipes.push({:id => id, :name => recipe[0], :making => recipe[1]})
+    end
+  end
+
+  def show_recipe_by_id(id)
+    # @recipes.each do |recipe|
+    #   puts "#{recipe[:id]}: #{recipe[:name]} #{recipe[:making]}" if id == recipe[:id]
+    # end
+    recipe = @recipes[id-1]
+    puts "#{recipe[:id]}: #{recipe[:name]} #{recipe[:making]}"
   end
 end
 
-if ARGV.size == 1
-  showRecipesId(ARGV[0])
-elsif ARGV.size == 2
-  recipeId(ARGV[0], ARGV[1].to_i)
+# main
+filename = ARGV[0]
+id = ARGV[1].to_i
+
+File.open(filename) do |f|
+  recipes = Recipes.new(f)
+  recipes.read
+
+  recipes.show_all if ARGV.size == 1
+  recipes.show_recipe_by_id(id) if ARGV.size == 2
 end
