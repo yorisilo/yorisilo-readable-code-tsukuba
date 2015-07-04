@@ -4,7 +4,7 @@
 ## recipe.rb の使い方
 
 ### `recipes.txt` に recipe を追加する
-`recipes.txt` は
+各`recipes(1..4).txt` は
 
 ```
 オムライス 卵を焼いてごはんにのせる
@@ -15,19 +15,17 @@
 みたいなフォーマットになっているので，それに合わせて追加してね．
 最後の行は改行を入れてくださいまし．
 
-### ユーザーに紐付いた`recipes.txt`の表示
+### 四人の各ユーザーに紐付いたレシピの表示
 
-ユーザー kou に紐付いた`recipes.txt`の表示
 
 ```sh
-$ ruby recipe.sh kou recipes.txt
+$ ruby recipe.rb kou recipes1.txt piyo recipes2.txt okkez recipes3.txt kou recipes4.txt
 ```
 
+### 四人の各ユーザーに紐付いたレシピのidを指定してそれを表示する．
 
-### ユーザーに紐付いた `recipes.txt` のidを指定してそれを表示する．
-
-ユーザー kou に紐付いた`recipes.txt`のidを指定してそれを表示
+四人の各ユーザーに紐付いたレシピのid 3 を表示する．
 
 ```sh
-$ ruby recipe.sh kou recipes.txt 1
+$ ruby recipe.rb kou recipes1.txt piyo recipes2.txt okkez recipes3.txt kou recipes4.txt 3
 ```
