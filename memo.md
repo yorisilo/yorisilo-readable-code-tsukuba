@@ -7,7 +7,6 @@
 ruby recipe.sh recipe-data.txt 0
 ```
 
-
 ## `recipe-data.txt` のidを指定してそれを表示する．
 以下の例は id が 1 の recipe を表示する．
 
