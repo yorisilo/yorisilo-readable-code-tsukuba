@@ -5,7 +5,10 @@ class Recipes
   def initialize(filename)
     @file = filename
     @recipes = []
+    @usr = ""
   end
+
+  attr_accessor :usr_name
 
   def show_all
     @recipes.each do |recipe|
@@ -27,16 +30,22 @@ class Recipes
     recipe = @recipes[id-1]
     puts "#{recipe[:id]}: #{recipe[:name]} #{recipe[:making]}"
   end
+
+  def show_usr(usr)
+    puts "ユーザー名: #{usr}"
+  end
 end
 
 # main
-filename = ARGV[0]
-id = ARGV[1].to_i
+filename = ARGV[1]
+id = ARGV[2].to_i
+usr_name = ARGV[0]
 
 File.open(filename) do |f|
   recipes = Recipes.new(f)
   recipes.read
 
-  recipes.show_all if ARGV.size == 1
-  recipes.show_recipe_by_id(id) if ARGV.size == 2
+  recipes.show_usr(usr_name)
+  recipes.show_all if ARGV.size == 2
+  recipes.show_recipe_by_id(id) if ARGV.size == 3
 end

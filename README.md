@@ -1,4 +1,5 @@
 # readable-code 勉強会
+[課題](https://github.com/clear-code/sezemi-2015/blob/master/readable-code-tsukuba/task.md)
 
 ## recipe.rb の使い方
 
@@ -14,16 +15,19 @@
 みたいなフォーマットになっているので，それに合わせて追加してね．
 最後の行は改行を入れてくださいまし．
 
-### `recipes.txt` の一覧表示
+### ユーザーに紐付いた`recipes.txt`の表示
+
+ユーザー kou に紐付いた`recipes.txt`の表示
 
 ```sh
-$ ruby recipe.sh recipes.txt
+$ ruby recipe.sh kou recipes.txt
 ```
 
 
-### `recipes.txt` のidを指定してそれを表示する．
-以下の例は id が 1 の recipe を表示する．
+### ユーザーに紐付いた `recipes.txt` のidを指定してそれを表示する．
+
+ユーザー kou に紐付いた`recipes.txt`のidを指定してそれを表示
 
 ```sh
-$ ruby recipe.sh recipes.txt 1
+$ ruby recipe.sh kou recipes.txt 1
 ```
